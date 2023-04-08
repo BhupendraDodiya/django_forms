@@ -1,0 +1,17 @@
+<table border="1 px solid black" cellpadding="10px">
+    {% for i in objects %}
+    <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.age}}</td>
+        <td>{{i.dob}}</td>
+        {% if i.active == True %}
+        <td><del>{{i.active}}</del></td>
+        {% else %}
+        <td>{{i.active}}</td>
+        {% endif %}
+        <td>{{i.email}}</td>
+        <td><a href="/delete/{{i.id}}">delete</a></td>
+        <td><a href="{% url 'edit' i.id %}">edit</a></td>
+    </tr>
+    {% endfor %}
+</table>
